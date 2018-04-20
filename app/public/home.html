@@ -3,6 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
+  
+
   <title>Friend Finder</title>
   <!-- Bootswatch Styling for Improving the Aesthetics -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css">
@@ -15,6 +17,31 @@
     .panel-body a {
       word-break: break-all;
     }
+
+   body {
+      /*background-image: url(".");
+      background-repeat: no-repeat;*/
+      height: 100%;
+      text-align: center;
+      background: url(../images/fallenPeople.jpg) no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+       background-repeat: no-repeat;
+       
+
+    }
+
+  
+  
+
+
+    .container {
+      width: 960px;
+    }
+    
+ 
+
+    
   </style>
 </head>
 
@@ -26,20 +53,29 @@
     <!-- Jumbotron for Title -->
     <div class="jumbotron" style="background-color: gray ; color: white;">
       <h1 class="text-center"><strong><i class="fa fa-facebook-official" aria-hidden="true"></i>Friend Finder</strong></h1>
+      <p class="text-center"><strong>>...</p>
+
+      <button type="submit" class="btn btn-default" id="run-search"><i class="fa fa-users" aria-hidden="true"></i></i> Survey</button>
+
     </div>
 
-    <!-- Here we have our final submit button -->
-              <button type="submit" class="btn btn-default" id="run-search"><i class="fa fa-users" aria-hidden="true"></i></i> Survey</button>
-           
-
-   
-            
-  <!-- jQuery JS -->
-  <script src="https://code.jquery.com/jquery.js"></script>
-
-  <!-- Code to the JavaScript File -->
-  <script src="server.js"></script>
-
 </body>
-
 </html>
+
+
+
+
+
+<!--img.bg {
+  /* Set rules to fill background */
+  
+  
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
