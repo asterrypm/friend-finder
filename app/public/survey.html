@@ -1,41 +1,285 @@
-<!-- Here we create an HTML Form for handling the inputs-->
-            <form role="form">
-
-              <!-- Here we create the text box for capturing the search term-->
-              <div class="form-group">
-                <label for="search">Search Term:</label>
-                <input type="text" class="form-control" id="search-term">
-              </div>
-
-              <!-- Here we capture the number of records that the user wants to retrieve  -->
-              <div class="form-group">
-                <label for="pwd">Number of Records to Retrieve:</label>
-                <select class="form-control" id="num-records-select">
-							<option value="1">1</option>
-							<!-- Setting the option for 5 as default -->
-							<option value="5" selected>5</option>
-							<option value="10">10</option>
-						</select>
-              </div>
-
-              <!-- Here we capture the Start Year Parameter-->
-              <div class="form-group">
-                <label for="start-year">Start Year (Optional):</label>
-                <input type="text" class="form-control" id="start-year">
-              </div>
-
-              <!-- Here we capture the End Year Parameter -->
-              <div class="form-group">
-                <label for="end-year">End Year (Optional):</label>
-                <input type="text" class="form-control" id="end-year">
-              </div>
-
-              <!-- Here we have our final submit button -->
-              <button type="submit" class="btn btn-default" id="run-search"><i class="fa fa-search"></i> Search</button>
-              <button type="button" class="btn btn-default" id="clear-all"><i class="fa fa-trash"></i> Clear Results</button>
-
-            </form>
-          </div>
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Require meta tags -->
+  <meta charset="utf-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+  <!-- Font Awesome Icons -->
+  <script
+    defer
+    src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
+    integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
+    crossorigin="anonymous"></script>
+  <style>
+  
+    .container {
+      width: 960px;
+    }
+    .dropdown {
+      max-width: 250px;
+    }
+    .form-group {
+      margin-bottom: 5px;
+    }
+    label {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+  </style>
+  <!-- Page Title -->
+  <title>Friend Finder Survey</title>
+</head>
+<body>
+  <div class="container mb-5">
+    <h1 class="display-4">Survey</h1>
+    <!-- Survey Form -->
+    <form class="border p-2">
+      <!-- User Name -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          required
+          id="name"
+          type="text"
+          class="form-control"
+          placeholder="John Smith">
+      </div>
+      <!-- User Image Link -->
+      <div class="form-group">
+        <label for="photo">Link to photo</label>
+        <input
+          required
+          id="photo"
+          type="url"
+          class="form-control"
+          placeholder="ex. www.example.com/my-photo">
+      </div>
+      <!-- Brief Description -->
+      <div class="form-group">
+        <label for="description">Add A Short Description Here</label>
+        <input
+          required
+          id="desc"
+          type="text"
+          class="form-control"
+          placeholder="ex. I love scuba diving.  Ready to get wet?">
+      </div>
+      <hr class="mt-4 mb-2">
+      <!-- Question #1 -->
+      <div class="form-group">
+        <label for="q1">Skydiving is my jam.</label>
+        <select required class="form-control dropdown" id="q1">
+          <option value="" disabled selected>Select an option</option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <!-- Question #2 -->
+      <div class="form-group">
+        <label for="q2">Sarcasm is the best sense of humor.</label>
+        <select required class="form-control dropdown" id="q2">
+          <option value="" disabled selected>Select an option</option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <!-- Question #3 -->
+      <div class="form-group">
+        <label for="q3">A fun trip would be a hiking trip to Macchu Pichu.</label>
+        <select required class="form-control dropdown" id="q3">
+          <option value="" disabled selected>Select an option</option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <!-- Question #4 -->
+      <div class="form-group">
+        <label for="q4">Loyalty is a must.</label>
+        <select required class="form-control dropdown" id="q4">
+          <option value="" disabled selected>Select an option</option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <!-- Question #5 -->
+      <div class="form-group">
+        <label for="q5">Honesty is a characteristic I value.</label>
+        <select required class="form-control dropdown" id="q5">
+          <option value="" disabled selected>Select an option</option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <!-- Question #6 -->
+      <div class="form-group">
+        <label for="q6">I have considered or been part of the Peace Corp.</label>
+        <select required class="form-control dropdown" id="q6">
+          <option value="" disabled selected>Select an option</option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <!-- Question #7 -->
+      <div class="form-group">
+        <label for="q7">Travel is the best educator.</label>
+        <select required class="form-control dropdown" id="q7">
+          <option value="" disabled selected>Select an option</option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <!-- Question #8 -->
+      <div class="form-group">
+        <label for="q8">The sound of the ocean is a lullabye.</label>
+        <select required class="form-control dropdown" id="q8">
+          <option value="" disabled selected>Select an option</option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <!-- Question #9 -->
+      <div class="form-group">
+        <label for="q9">A beach, a cocktail, and toes in the sand is my happy place.</label>
+        <select required class="form-control dropdown" id="q9">
+          <option value="" disabled selected>Select an option</option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <!-- Question #10 -->
+      <div class="form-group">
+        <label for="q10">White water rafting is perfect for a Saturday!</label>
+        <select required class="form-control dropdown" id="q10">
+          <option value="" disabled selected>Select an option</option>
+          <option value="1">1 (Strongly Disagree)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (Strongly Agree)</option>
+        </select>
+      </div>
+      <!-- SUBMIT button -->
+      <button id="submitSurvey" type="submit" class="btn btn-primary w-100">Submit</button>
+    </form><!-- End 'Survey Form' -->
+  </div><!-- End Div 'container' -->
+  <!-- Results modal -->
+  <div class="modal fade" id="resultsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Your Friend Found</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Friend data to push here -->
         </div>
       </div>
     </div>
+  </div>
+  <!-- End 'Results modal' -->
+  <footer class="fixed-bottom text-center pb-2">
+    <a href="/api/friends" class="text-dark">API Friends List</a>&nbsp;|
+    <a href="https://asterrypm.github.io/friend-finder/" class="text-dark">&nbsp;<i class="fab fa-github"></i>&nbsp;Source Code</a>
+  </footer>
+  <!-- jQuery -->
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <!-- Popper -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    crossorigin="anonymous"></script>
+  <!-- Bootstrap -->
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+    integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+  <script>
+    /**
+     * FORM JQuery
+     */
+    // Shorthand for $( document ).ready()
+    $(function () {
+      // When completed form is submitted
+      $('.container').on('submit', 'form', (e) => {
+        // Prevent default reloading of page
+        e.preventDefault();
+        // Gather values from survey
+        const newUser = {
+          name: $("#name").val().trim(),
+          photo: $("#photo").val().trim(),
+          description: $("#desc").val().trim(),
+          scores: [
+            $("#q1").val(), 
+            $("#q2").val(), 
+            $("#q3").val(), 
+            $("#q4").val(), 
+            $("#q5").val(), 
+            $("#q6").val(), 
+            $("#q7").val(), 
+            $("#q8").val(), 
+            $("#q9").val(), 
+            $("#q10").val(),
+          ]
+        };
+        // Clear input values from DOM
+        $('.form-control').val("");
+        // Send post request
+        $.post('/api/friends', newUser)
+          .then( friend => {
+            // Empty previous results in modal
+            $('.modal-body').empty();
+            // Render response object to modal
+            let name = `<h2>${friend.name}</h2>`;
+            let img = `<img src="${friend.photo}" class="img-fluid mb-2">`;
+            let description = `<p>${friend.description}</p>`;
+            $('.modal-body').append(name, img, quip);
+            // Show modal
+            $('#resultsModal').modal("show");
+          })
+          .catch(err => console.error(err));
+      });
+    });
+  </script>
+</body>
+</html>
