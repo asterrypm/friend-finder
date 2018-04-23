@@ -14,33 +14,32 @@ module.exports = function(app) {
   app.post('/api/friends', function(req, res) {
     // Get the new user data out of the request body
     var newUser = req.body;
-    // Do some looping and calculations to determine the best match
+    var userScores = [friends.scores];
+    
+    
     var bestMatch = function(newUser) {
     	
-	  // Declare variable that will hold the bestMatch
-	  var indexOfBestMatch;
-	  // Declare variable that will hold the current lowest difference
-	  var diffOfBestMatch = /* a really large placeholder number */;
+	  
+	var indexOfBestMatch;  
+	var diffOfBestMatch = Infinity;
 	  
 	  // Nested for loops
-	  for (/* loop over the friends array */) {
+	  for (var i = 0; i < newUser.length; i++) {
 
-	    // Define variable to store the cumulative difference of newUser and friend
+	   
 	    var total = 0;
 
-	    for (/* loop over scores property of each friend */) {
-
-	      // Add absolute value of difference to the total
-	      total += Math.abs(/* newUser score MINUS friend's score */);
-
+	    for (var x = 0; x < userScores.length; x++ ) {
+	    	var diff = Math.abs(newUserScores[x] - userScores[i][x]);
+	      
+	      total += diff;
 	    }
 
-	    if (/* total is lower than diffOfBestMatch */) {
-	      /* then the indexOfBestMatch is the index of the current loop */
-	      /* also set diffOfBestMatch to hold current loop's 'total' value */
-	    } else {
-	      /* do nothing, this friend is not the best match */
-	    }
+	    if (total < diffOfBestMatch) {
+	    	
+	    	bestMatch = userScores[i];
+	    	indexOfBestMatch = total;
+	    } 
 	  }
 	  
       return friends[indexOfBestMatch]
@@ -62,4 +61,4 @@ module.exports = function(app) {
 
 
 
-Add CommentCollapse 
+ 
